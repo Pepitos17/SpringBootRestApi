@@ -1,4 +1,4 @@
-package net.joyboyrest.SpringBootRestApi;
+package net.joyboyrest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
