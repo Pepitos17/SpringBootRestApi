@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static net.joyboyrest.student.StudentService.getStudentList;
 
 @RestController
 @RequestMapping(path = "api/v1/student")
@@ -22,7 +21,7 @@ private final StudentService studentService;
 
     @GetMapping
     public List<Student> getStudents() {
-        return getStudentList();
+        return studentService.getStudentList();
     }
 
 

@@ -1,5 +1,6 @@
 package net.joyboyrest.student;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -9,8 +10,16 @@ import java.util.List;
 @Service
 public class StudentService {
 
-    public static List<Student> getStudentList() {
-        return List.of(
+    private final StudentRepository studentRepository;
+
+    @Autowired
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+
+    public List<Student> getStudentList() {
+      /*  return List.of(
                 new Student(
                         1L,
                         "Mario",
@@ -18,7 +27,8 @@ public class StudentService {
                         LocalDate.of(2000, Month.JANUARY, 5),
                         21
                 )
-        );
+        );*/
+        return studentRepository.findAll();
     }
 
 }

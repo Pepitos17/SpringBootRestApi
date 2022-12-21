@@ -1,8 +1,20 @@
 package net.joyboyrest.student;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Student {
+    @Id
+    @SequenceGenerator(name = "student_sequence",
+                       sequenceName = "student_seuquence",
+                        allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
     private Long id;
     private String name;
     private String email;
@@ -23,12 +35,12 @@ public class Student {
     public Student() {
 
     }
-    public Student(Long id,
+    public Student(//Long id,
                    String name,
                    String email,
                    LocalDate dob,
                    Integer age) {
-        this.id = id;
+        //this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
